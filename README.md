@@ -79,10 +79,7 @@
 
 ## About The Project
 
-<video width="100%" controls>
-  <source src="demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="demo.gif" alt="Demo" width="600" height="400">
 
 #### 1. Data Pipeline Architecture
 
