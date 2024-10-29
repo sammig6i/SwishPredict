@@ -1,0 +1,75 @@
+[2024-10-29T04:59:34.037+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-29T04:59:34.199+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_ingestion manual__2024-10-29T04:59:32.420396+00:00 [queued]>
+[2024-10-29T04:59:34.225+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_ingestion manual__2024-10-29T04:59:32.420396+00:00 [queued]>
+[2024-10-29T04:59:34.226+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 4
+[2024-10-29T04:59:34.267+0000] {taskinstance.py:2888} INFO - Executing <Task(DockerOperator): run_data_ingestion> on 2024-10-29 04:59:32.420396+00:00
+[2024-10-29T04:59:34.283+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'nba_data_pipeline', 'run_data_ingestion', 'manual__2024-10-29T04:59:32.420396+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline.py', '--cfg-path', '/tmp/tmp4ykhibc7']
+[2024-10-29T04:59:34.289+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask run_data_ingestion
+[2024-10-29T04:59:34.292+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=314) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-10-29T04:59:34.295+0000] {standard_task_runner.py:72} INFO - Started process 315 to run task
+[2024-10-29T04:59:34.384+0000] {task_command.py:467} INFO - Running <TaskInstance: nba_data_pipeline.run_data_ingestion manual__2024-10-29T04:59:32.420396+00:00 [running]> on host 19f753cfe918
+[2024-10-29T04:59:34.523+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='run_data_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2024-10-29T04:59:32.420396+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-29T04:59:32.420396+00:00'
+[2024-10-29T04:59:34.524+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-29T04:59:34.582+0000] {docker.py:367} INFO - Starting docker container from image us-west1-docker.pkg.dev/nba-fantasy-ml/nba-data-pipeline-repo/data-ingestion:latest
+[2024-10-29T05:04:05.887+0000] {docker.py:438} INFO - Processing batch 1/1
+[2024-10-29T05:04:05.890+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410220BOS.html for game date 2024-10-22
+[2024-10-29T05:04:05.894+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410220LAL.html for game date 2024-10-22
+[2024-10-29T05:04:05.896+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230DET.html for game date 2024-10-23
+[2024-10-29T05:04:05.897+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230ATL.html for game date 2024-10-23
+[2024-10-29T05:04:05.899+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230MIA.html for game date 2024-10-23
+[2024-10-29T05:04:05.901+0000] {docker.py:438} INFO - Skipping incomplete data for kevin love
+[2024-10-29T05:04:05.902+0000] {docker.py:438} INFO - Skipping incomplete data for josh richardson
+[2024-10-29T05:04:05.905+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230PHI.html for game date 2024-10-23
+[2024-10-29T05:04:05.907+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230TOR.html for game date 2024-10-23
+[2024-10-29T05:04:05.910+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230HOU.html for game date 2024-10-23
+[2024-10-29T05:04:05.912+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230NOP.html for game date 2024-10-23
+[2024-10-29T05:04:05.915+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230UTA.html for game date 2024-10-23
+[2024-10-29T05:04:05.918+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230LAC.html for game date 2024-10-23
+[2024-10-29T05:04:05.920+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410230POR.html for game date 2024-10-23
+[2024-10-29T05:04:05.925+0000] {docker.py:438} INFO - Skipping incomplete data for shaedon sharpe
+[2024-10-29T05:04:05.927+0000] {docker.py:438} INFO - Skipping incomplete data for matisse thybulle
+[2024-10-29T05:04:05.928+0000] {docker.py:438} INFO - Skipping incomplete data for robert williams
+[2024-10-29T05:04:05.930+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410240WAS.html for game date 2024-10-24
+[2024-10-29T05:04:05.932+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410240DAL.html for game date 2024-10-24
+[2024-10-29T05:04:05.934+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410240SAC.html for game date 2024-10-24
+[2024-10-29T05:04:05.935+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410240DEN.html for game date 2024-10-24
+[2024-10-29T05:04:05.938+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250ORL.html for game date 2024-10-25
+[2024-10-29T05:04:05.941+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250TOR.html for game date 2024-10-25
+[2024-10-29T05:04:05.943+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250ATL.html for game date 2024-10-25
+[2024-10-29T05:04:05.944+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250CLE.html for game date 2024-10-25
+[2024-10-29T05:04:05.945+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250NYK.html for game date 2024-10-25
+[2024-10-29T05:04:05.947+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250HOU.html for game date 2024-10-25
+[2024-10-29T05:04:05.949+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250MIL.html for game date 2024-10-25
+[2024-10-29T05:04:05.951+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250UTA.html for game date 2024-10-25
+[2024-10-29T05:04:05.952+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250LAL.html for game date 2024-10-25
+[2024-10-29T05:04:05.957+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410250POR.html for game date 2024-10-25
+[2024-10-29T05:04:05.958+0000] {docker.py:438} INFO - Skipping incomplete data for shaedon sharpe
+[2024-10-29T05:04:05.959+0000] {docker.py:438} INFO - Skipping incomplete data for matisse thybulle
+[2024-10-29T05:04:05.960+0000] {docker.py:438} INFO - Skipping incomplete data for robert williams
+[2024-10-29T05:04:05.962+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260DEN.html for game date 2024-10-26
+[2024-10-29T05:04:05.963+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260WAS.html for game date 2024-10-26
+[2024-10-29T05:04:05.965+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260DET.html for game date 2024-10-26
+[2024-10-29T05:04:05.966+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260CHO.html for game date 2024-10-26
+[2024-10-29T05:04:05.968+0000] {docker.py:438} INFO - Skipping incomplete data for josh richardson
+[2024-10-29T05:04:05.970+0000] {docker.py:438} INFO - Skipping incomplete data for kel'el ware
+[2024-10-29T05:04:05.971+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260MEM.html for game date 2024-10-26
+[2024-10-29T05:04:05.973+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260MIN.html for game date 2024-10-26
+[2024-10-29T05:04:05.974+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260CHI.html for game date 2024-10-26
+[2024-10-29T05:04:05.976+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260SAS.html for game date 2024-10-26
+[2024-10-29T05:04:05.977+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260PHO.html for game date 2024-10-26
+[2024-10-29T05:04:05.978+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410260LAL.html for game date 2024-10-26
+[2024-10-29T05:04:05.980+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410270IND.html for game date 2024-10-27
+[2024-10-29T05:04:05.981+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410270POR.html for game date 2024-10-27
+[2024-10-29T05:04:05.982+0000] {docker.py:438} INFO - Skipping incomplete data for shaedon sharpe
+[2024-10-29T05:04:05.983+0000] {docker.py:438} INFO - Skipping incomplete data for matisse thybulle
+[2024-10-29T05:04:05.984+0000] {docker.py:438} INFO - Skipping incomplete data for robert williams
+[2024-10-29T05:04:05.985+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410270BRK.html for game date 2024-10-27
+[2024-10-29T05:04:05.986+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410270OKC.html for game date 2024-10-27
+[2024-10-29T05:04:05.988+0000] {docker.py:438} INFO - Scraping box score: https://www.basketball-reference.com/boxscores/202410270GSW.html for game date 2024-10-27
+[2024-10-29T05:04:05.990+0000] {docker.py:438} INFO - File player_box_scores/2024-25/nba_player_stats_2024-25_2024-10-22_to_2024-10-31_2024-10-29_05-04-05.csv successfully uploaded to bucket nba-raw-data
+[2024-10-29T05:04:05.992+0000] {docker.py:438} INFO - 2024-10-29 05:04:05,879 - INFO - Data successfully uploaded to MinIO bucket 'nba-raw-data' as 'player_box_scores/2024-25/nba_player_stats_2024-25_2024-10-22_to_2024-10-31_2024-10-29_05-04-05.csv'
+[2024-10-29T05:04:06.738+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-29T05:04:06.740+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=run_data_ingestion, run_id=manual__2024-10-29T04:59:32.420396+00:00, execution_date=20241029T045932, start_date=20241029T045934, end_date=20241029T050406
+[2024-10-29T05:04:06.805+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-29T05:04:06.882+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-10-29T05:04:06.888+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

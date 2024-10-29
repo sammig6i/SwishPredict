@@ -1,0 +1,106 @@
+[2024-10-29T03:50:27.160+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-29T03:50:27.181+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_processing scheduled__2024-10-28T00:00:00+00:00 [queued]>
+[2024-10-29T03:50:27.193+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_processing scheduled__2024-10-28T00:00:00+00:00 [queued]>
+[2024-10-29T03:50:27.194+0000] {taskinstance.py:2865} INFO - Starting attempt 2 of 4
+[2024-10-29T03:50:27.211+0000] {taskinstance.py:2888} INFO - Executing <Task(DockerOperator): run_data_processing> on 2024-10-28 00:00:00+00:00
+[2024-10-29T03:50:27.219+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'nba_data_pipeline', 'run_data_processing', 'scheduled__2024-10-28T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline.py', '--cfg-path', '/tmp/tmp4xwl4abe']
+[2024-10-29T03:50:27.222+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask run_data_processing
+[2024-10-29T03:50:27.223+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=346) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-10-29T03:50:27.224+0000] {standard_task_runner.py:72} INFO - Started process 347 to run task
+[2024-10-29T03:50:27.278+0000] {task_command.py:467} INFO - Running <TaskInstance: nba_data_pipeline.run_data_processing scheduled__2024-10-28T00:00:00+00:00 [running]> on host 64155fb41ea5
+[2024-10-29T03:50:27.376+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='run_data_processing' AIRFLOW_CTX_EXECUTION_DATE='2024-10-28T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-28T00:00:00+00:00'
+[2024-10-29T03:50:27.377+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-29T03:50:27.417+0000] {docker.py:367} INFO - Starting docker container from image us-west1-docker.pkg.dev/nba-fantasy-ml/nba-data-pipeline-repo/data-processing:latest
+[2024-10-29T03:50:28.280+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,278 - INFO - Starting data processing...
+[2024-10-29T03:50:28.284+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,283 - INFO - Database connected.
+[2024-10-29T03:50:28.284+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,283 - INFO - Cleaning and preprocessing data...
+[2024-10-29T03:50:28.330+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,328 - INFO - Validation passed.
+[2024-10-29T03:50:28.330+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,329 - INFO - Assigning unique IDs for players and games...
+[2024-10-29T03:50:28.512+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,510 - INFO - Inserting player stats into database...
+[2024-10-29T03:50:28.531+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,527 - ERROR - Error processing raw data: duplicate key value violates unique constraint "playerstats_pkey"
+[2024-10-29T03:50:28.532+0000] {docker.py:438} INFO - DETAIL:  Key (game_id, player_id)=(8dbca9673795a8ad5e241ed430ba5ede, 1) already exists.
+[2024-10-29T03:50:28.533+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,527 - INFO - Database connection closed.
+[2024-10-29T03:50:28.533+0000] {docker.py:438} INFO - 2024-10-29 03:50:28,528 - ERROR - Data processing failed.
+[2024-10-29T03:50:28.744+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 446, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2024-10-29T03:50:28.754+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=nba_data_pipeline, task_id=run_data_processing, run_id=scheduled__2024-10-28T00:00:00+00:00, execution_date=20241028T000000, start_date=20241029T035027, end_date=20241029T035028
+[2024-10-29T03:50:28.771+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-29T03:50:28.772+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 4 for task run_data_processing (Docker container failed: {'StatusCode': 1}; 347)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 446, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2024-10-29T03:50:28.805+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2024-10-29T03:50:28.824+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-29T03:50:28.826+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

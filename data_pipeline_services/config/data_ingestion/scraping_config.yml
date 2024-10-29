@@ -1,7 +1,7 @@
 scraping_job:
-  season: "2023-24"
-  start_date: "10-24" # MM-DD
-  end_date: "10-25" # MM-DD
+  season: "2024-25"
+  start_date: "10-22" # MM-DD
+  end_date: "10-31" # MM-DD
 
 # if start_date and end_date empty
 default_nba_dates:
@@ -10,4 +10,3 @@ default_nba_dates:
 
 minio:
   output_dir: "player_box_scores"
-

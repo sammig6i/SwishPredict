@@ -1,0 +1,27 @@
+[2024-10-28T19:13:38.692+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-28T19:13:38.716+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_processing manual__2024-10-28T19:12:11.986806+00:00 [queued]>
+[2024-10-28T19:13:38.728+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_processing manual__2024-10-28T19:12:11.986806+00:00 [queued]>
+[2024-10-28T19:13:38.729+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 4
+[2024-10-28T19:13:38.748+0000] {taskinstance.py:2888} INFO - Executing <Task(DockerOperator): run_data_processing> on 2024-10-28 19:12:11.986806+00:00
+[2024-10-28T19:13:38.757+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'nba_data_pipeline', 'run_data_processing', 'manual__2024-10-28T19:12:11.986806+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline.py', '--cfg-path', '/tmp/tmphltv0hvu']
+[2024-10-28T19:13:38.761+0000] {standard_task_runner.py:105} INFO - Job 12: Subtask run_data_processing
+[2024-10-28T19:13:38.764+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=405) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-10-28T19:13:38.765+0000] {standard_task_runner.py:72} INFO - Started process 406 to run task
+[2024-10-28T19:13:38.837+0000] {task_command.py:467} INFO - Running <TaskInstance: nba_data_pipeline.run_data_processing manual__2024-10-28T19:12:11.986806+00:00 [running]> on host 0cda2f100f4b
+[2024-10-28T19:13:38.969+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='run_data_processing' AIRFLOW_CTX_EXECUTION_DATE='2024-10-28T19:12:11.986806+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-28T19:12:11.986806+00:00'
+[2024-10-28T19:13:38.970+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-28T19:13:39.013+0000] {docker.py:367} INFO - Starting docker container from image us-west1-docker.pkg.dev/nba-fantasy-ml/nba-data-pipeline-repo/data-processing:latest
+[2024-10-28T19:13:40.010+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,008 - INFO - Starting data processing...
+[2024-10-28T19:13:40.013+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,012 - INFO - Database connected.
+[2024-10-28T19:13:40.014+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,012 - INFO - Cleaning and preprocessing data...
+[2024-10-28T19:13:40.050+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,048 - INFO - Validation passed.
+[2024-10-28T19:13:40.051+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,049 - INFO - Assigning unique IDs for players and games...
+[2024-10-28T19:13:40.131+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,126 - INFO - Inserting player stats into database...
+[2024-10-28T19:13:40.229+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,227 - INFO - Data processing completed successfully.
+[2024-10-28T19:13:40.230+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,228 - INFO - Database connection closed.
+[2024-10-28T19:13:40.230+0000] {docker.py:438} INFO - 2024-10-28 19:13:40,228 - INFO - Successfully processed player_box_scores/2023-24/nba_player_stats_2023-24_2023-10-24_to_2023-10-25_2024-10-28_19-13-37.csv
+[2024-10-28T19:13:40.462+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-28T19:13:40.462+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=run_data_processing, run_id=manual__2024-10-28T19:12:11.986806+00:00, execution_date=20241028T191211, start_date=20241028T191338, end_date=20241028T191340
+[2024-10-28T19:13:40.508+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-28T19:13:40.527+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-28T19:13:40.529+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

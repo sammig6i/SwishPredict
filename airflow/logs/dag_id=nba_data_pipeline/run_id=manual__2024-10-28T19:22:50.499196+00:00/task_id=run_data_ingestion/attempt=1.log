@@ -1,0 +1,18 @@
+[2024-10-28T19:22:51.404+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-28T19:22:51.434+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_ingestion manual__2024-10-28T19:22:50.499196+00:00 [queued]>
+[2024-10-28T19:22:51.449+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.run_data_ingestion manual__2024-10-28T19:22:50.499196+00:00 [queued]>
+[2024-10-28T19:22:51.450+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 4
+[2024-10-28T19:22:51.472+0000] {taskinstance.py:2888} INFO - Executing <Task(DockerOperator): run_data_ingestion> on 2024-10-28 19:22:50.499196+00:00
+[2024-10-28T19:22:51.486+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'nba_data_pipeline', 'run_data_ingestion', 'manual__2024-10-28T19:22:50.499196+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline.py', '--cfg-path', '/tmp/tmpxb4htudu']
+[2024-10-28T19:22:51.491+0000] {standard_task_runner.py:105} INFO - Job 15: Subtask run_data_ingestion
+[2024-10-28T19:22:51.495+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=504) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-10-28T19:22:51.496+0000] {standard_task_runner.py:72} INFO - Started process 505 to run task
+[2024-10-28T19:22:51.601+0000] {task_command.py:467} INFO - Running <TaskInstance: nba_data_pipeline.run_data_ingestion manual__2024-10-28T19:22:50.499196+00:00 [running]> on host 0cda2f100f4b
+[2024-10-28T19:22:51.744+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='run_data_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2024-10-28T19:22:50.499196+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-28T19:22:50.499196+00:00'
+[2024-10-28T19:22:51.745+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-28T19:22:51.784+0000] {docker.py:367} INFO - Starting docker container from image us-west1-docker.pkg.dev/nba-fantasy-ml/nba-data-pipeline-repo/data-ingestion:latest
+[2024-10-28T19:24:00.980+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2024-10-28T19:24:00.999+0000] {process_utils.py:132} INFO - Sending 15 to group 505. PIDs of all processes in the group: [505]
+[2024-10-28T19:24:01.003+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 505
+[2024-10-28T19:24:01.006+0000] {taskinstance.py:3092} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-10-28T19:24:01.008+0000] {docker.py:533} INFO - Stopping docker container
